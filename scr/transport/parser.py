@@ -39,7 +39,7 @@ class TransportParser:
 
     async def get_element_info_by_index(self, tag, class_name=None, parent_tag=None, parent_class=None, index=None):
         elements = self.soup.find_all(parent_tag, class_=parent_class)
-        if index is not None and index < len(elements):
+        if index < len(elements):
             current_element = elements[index]
             return [stop.get_text(strip=True) for stop in current_element.find_all(tag, class_=class_name)]
         return []
